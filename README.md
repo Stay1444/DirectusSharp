@@ -4,6 +4,10 @@ An unofficial .NET wrapper for [Directus](https://directus.io/).
 
 It's not fully complete as I add stuff to it once I need it. Contributions are welcome.
 
+## Questions?
+
+Feel free to send me an email `staylluc@gmail.com` or create an issue with your question.
+
 ## Examples
 
 ### Creating a client
@@ -123,3 +127,7 @@ var response = await client.ExecuteAsync(new UpdatePetRequest() {
     Pet = ...
 };
 ```
+
+## License
+
+DirectusSharp is licensed under the [MIT](./LICENSE) license.
