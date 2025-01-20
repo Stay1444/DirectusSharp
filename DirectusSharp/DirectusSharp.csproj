@@ -4,6 +4,25 @@
         <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+
+        <EnablePackageValidation>true</EnablePackageValidation>
+        <PackageValidationBaselineVersion>1.0.0</PackageValidationBaselineVersion>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Authors>Stay1444</Authors>
+        <Description>An unofficial Directus API Wrapper for .NET</Description>
+
+        <!-- PackageProjectUrl is different from the repository URL. It can be a documentation
+             website or a website explaining the project -->
+        <PackageProjectUrl>https://directus.io</PackageProjectUrl>
+
+        <!-- A list of tags to help the search engine to understand the content of the package -->
+        <PackageTags>directus, wrapper, rest, http, library</PackageTags>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
     </PropertyGroup>
 
     <ItemGroup>
