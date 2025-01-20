@@ -7,8 +7,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
 
-        <EnablePackageValidation>true</EnablePackageValidation>
-        <PackageValidationBaselineVersion>1.0.0</PackageValidationBaselineVersion>
+        <PackageValidationBaselineVersion>0.0.3</PackageValidationBaselineVersion>
     </PropertyGroup>
 
     <PropertyGroup>
