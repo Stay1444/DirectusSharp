@@ -17,7 +17,7 @@
         <PackageProjectUrl>https://github.com/Stay1444/DirectusSharp/blob/master/README.md</PackageProjectUrl>
         <RepositoryUrl>https://github.com/Stay1444/DirectusSharp</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageReadmeFile>../README.md</PackageReadmeFile>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
 
         <!-- A list of tags to help the search engine to understand the content of the package -->
         <PackageTags>directus, wrapper, rest, http, library</PackageTags>
