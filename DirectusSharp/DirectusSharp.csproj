@@ -14,9 +14,9 @@
         <Authors>Stay1444</Authors>
         <Description>An unofficial Directus API Wrapper for .NET</Description>
 
-        <!-- PackageProjectUrl is different from the repository URL. It can be a documentation
-             website or a website explaining the project -->
-        <PackageProjectUrl>https://directus.io</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/Stay1444/DirectusSharp/blob/master/README.md</PackageProjectUrl>o
+        <RepositoryUrl>https://github.com/Stay1444/DirectusSharp</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
 
         <!-- A list of tags to help the search engine to understand the content of the package -->
         <PackageTags>directus, wrapper, rest, http, library</PackageTags>
