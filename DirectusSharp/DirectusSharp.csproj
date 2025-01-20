@@ -14,7 +14,7 @@
         <Authors>Stay1444</Authors>
         <Description>An unofficial Directus API Wrapper for .NET</Description>
 
-        <PackageProjectUrl>https://github.com/Stay1444/DirectusSharp/blob/master/README.md</PackageProjectUrl>o
+        <PackageProjectUrl>https://github.com/Stay1444/DirectusSharp/blob/master/README.md</PackageProjectUrl>
         <RepositoryUrl>https://github.com/Stay1444/DirectusSharp</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
 
