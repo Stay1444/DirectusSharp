@@ -19,3 +19,5 @@ var updatedMovie = await client.UpdateMovieAsync(new Movie()
     MovieId = 4, // The MovieId to update
     Title = "Lion King II",
 });
+
+await client.DeleteMovieAsync(4);

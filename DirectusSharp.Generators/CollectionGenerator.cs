@@ -76,6 +76,20 @@ public static class {className}Collection
         protected override string GetItemId() => {className}.{idProperty.Identifier.Text}.ToString();
     }}
 
+    public class Delete{className}Request : DeleteItemRequest {{
+        public required {idPropertySymbol.Type.ToDisplayString()} {idProperty.Identifier.Text} {{ get; init; }}
+
+        protected override string GetCollection() => ""{collectionName}"";
+        protected override string GetItemId() => {idProperty.Identifier.Text}.ToString();
+    }}
+
+    public class DeleteMultiple{className}Request : DeleteItemsRequest {{
+        public required {idPropertySymbol.Type.ToDisplayString()}[] {idProperty.Identifier.Text} {{ get; init; }}
+
+        protected override string GetCollection() => ""{collectionName}"";
+        protected override string[] GetItemIds() => {idProperty.Identifier.Text}.Select(x => x.ToString()).ToArray();
+    }}
+
     public static async Task<{classSymbol.ToDisplayString()}?> Get{className}Async(this DirectusSharp.IDirectus client, {idPropertySymbol.Type.ToDisplayString()} {idProperty.Identifier.Text.ToCamelCase()}) {{
         var response = await client.ExecuteAsync(new Get{className}Request() {{
             {idProperty.Identifier.Text} = {idProperty.Identifier.Text.ToCamelCase()}
@@ -101,6 +115,18 @@ public static class {className}Collection
 
         if (response.IsSuccess) return response.Data;
         return null;
+    }}
+
+    public static async Task Delete{className}Async(this DirectusSharp.IDirectus client, {idPropertySymbol.Type.ToDisplayString()} {idProperty.Identifier.Text.ToCamelCase()}) {{
+        var response = await client.ExecuteAsync(new Delete{className}Request() {{
+            {idProperty.Identifier.Text} = {idProperty.Identifier.Text.ToCamelCase()}
+        }});
+    }}
+
+    public static async Task Delete{className}Async(this DirectusSharp.IDirectus client, System.Collections.Generic.IEnumerator<{idPropertySymbol.Type.ToDisplayString()}> {idProperty.Identifier.Text.ToCamelCase()}) {{
+        var response = await client.ExecuteAsync(new DeleteMultiple{className}Request() {{
+            {idProperty.Identifier.Text} = {idProperty.Identifier.Text.ToCamelCase()}.ToArray()
+        }});
     }}
 }}
 ";
