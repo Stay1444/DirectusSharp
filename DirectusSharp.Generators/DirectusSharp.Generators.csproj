@@ -9,8 +9,8 @@
         <RoslynComponent>true</RoslynComponent>
 
         <PackageId>DirectusSharp.Generators</PackageId>
-        <Version>0.0.10</Version>
-        <PackageValidationBaselineVersion>0.0.10</PackageValidationBaselineVersion>
+        <Version>0.0.11</Version>
+        <PackageValidationBaselineVersion>0.0.11</PackageValidationBaselineVersion>
     </PropertyGroup>
     
     <PropertyGroup>
