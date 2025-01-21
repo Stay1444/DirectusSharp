@@ -31,6 +31,24 @@ public static class Extensions
         protected override string GetItemId() => Id;
     }
 
+    private class DeleteGenericItemRequest : DeleteItemRequest
+    {
+        public required string Collection { get; init; }
+        public required string Id { get; init; }
+
+        protected override string GetCollection() => Collection;
+        protected override string GetItemId() => Id;
+    }
+    
+    private class DeleteMultipleGenericItemRequest : DeleteItemsRequest
+    {
+        public required string Collection { get; init; }
+        public required string[] Ids { get; init; }
+
+        protected override string GetCollection() => Collection;
+        protected override string[] GetItemIds() => Ids;
+    }
+    
     public static async Task<DirectusResponse<TItem>> GetItemAsync<TItem>(this IDirectus client, string collection, string itemId)
     {
         return await client.ExecuteAsync(new GetGenericItemRequest<TItem>()
@@ -74,4 +92,38 @@ public static class Extensions
         => UpdateItemAsync(client, collection, itemId.ToString(), item);
     public static Task<DirectusResponse<TItem>> UpdateItemAsync<TItem>(this IDirectus client, string collection, Guid itemId, TItem item)
         => UpdateItemAsync(client, collection, itemId.ToString(), item);
+
+    public static async Task<DirectusResponse<Nothing>> DeleteItemAsync(this IDirectus client, string collection,
+        string itemId)
+    {
+        return await client.ExecuteAsync(new DeleteGenericItemRequest()
+        {
+            Collection = collection,
+            Id = itemId,
+        });
+    }
+    
+    public static Task<DirectusResponse<Nothing>> DeleteItemAsync(this IDirectus client, string collection, int itemId)
+        => DeleteItemAsync(client, collection, itemId.ToString());
+    public static Task<DirectusResponse<Nothing>> DeleteItemAsync(this IDirectus client, string collection, ulong itemId)
+        => DeleteItemAsync(client, collection, itemId.ToString());
+    public static Task<DirectusResponse<Nothing>> DeleteItemAsync(this IDirectus client, string collection, Guid itemId)
+        => DeleteItemAsync(client, collection, itemId.ToString());
+
+    public static async Task<DirectusResponse<Nothing>> DeleteItemAsync(this IDirectus client, string collection,
+        IEnumerable<string> items)
+    {
+        return await client.ExecuteAsync(new DeleteMultipleGenericItemRequest()
+        {
+            Collection = collection,
+            Ids = items.ToArray()
+        });
+    }
+    
+    public static Task<DirectusResponse<Nothing>> DeleteItemAsync(this IDirectus client, string collection, int[] itemId)
+        => DeleteItemAsync(client, collection, itemId.Select(x => x.ToString()));
+    public static Task<DirectusResponse<Nothing>> DeleteItemAsync(this IDirectus client, string collection, ulong[] itemId)
+        => DeleteItemAsync(client, collection, itemId.Select(x => x.ToString()));
+    public static Task<DirectusResponse<Nothing>> DeleteItemAsync(this IDirectus client, string collection, Guid[] itemId)
+        => DeleteItemAsync(client, collection, itemId.Select(x => x.ToString()));
 }

@@ -44,10 +44,13 @@ public class DirectusClient : IDirectus
                 temporaryIdentity.AccessToken),
             _ => message.Headers.Authorization
         };
-
-        message.Content = new StringContent(JsonSerializer.Serialize(request.GetMessageObject(), request.GetMessageObjectType(), _serializerOptions),
-            Encoding.UTF8,
-            "application/json");
+        
+        if (request.GetMessageObject() is not null)
+        {
+            message.Content = new StringContent(JsonSerializer.Serialize(request.GetMessageObject(), request.GetMessageObjectType(), _serializerOptions),
+                Encoding.UTF8,
+                "application/json");
+        }
 
         var response = await _httpClient.SendAsync(message, HttpCompletionOption.ResponseHeadersRead,
             cancellationToken);

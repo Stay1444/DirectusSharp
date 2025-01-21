@@ -8,4 +8,6 @@ public class GetCurrentUserRequest : IDirectusRequest<User>
     {
         return new HttpRequestMessage(HttpMethod.Get, "/users/me");
     }
+
+    public object? GetMessageObject() => null;
 }
