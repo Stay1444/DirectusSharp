@@ -7,6 +7,31 @@
         <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
         <IsRoslynComponent>true</IsRoslynComponent>
         <RoslynComponent>true</RoslynComponent>
+
+        <PackageId>DirectusSharp.Generators</PackageId>
+        <Version>0.0.7</Version>
+        <PackageValidationBaselineVersion>0.0.7</PackageValidationBaselineVersion>
+    </PropertyGroup>
+    
+    <PropertyGroup>
+        <Authors>Stay1444</Authors>
+        <Description>Generators for the DirectusSharp package</Description>
+
+        <PackageProjectUrl>https://github.com/Stay1444/DirectusSharp/blob/master/README.md</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/Stay1444/DirectusSharp</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+
+        <!-- A list of tags to help the search engine to understand the content of the package -->
+        <PackageTags>directus, wrapper, rest, http, library, generators</PackageTags>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="../README.md" Pack="true" PackagePath="\"/>
+    </ItemGroup>
+
+    <PropertyGroup>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
     </PropertyGroup>
 
     <ItemGroup>
