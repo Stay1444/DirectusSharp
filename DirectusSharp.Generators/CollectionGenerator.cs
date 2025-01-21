@@ -123,7 +123,7 @@ public static class {className}Collection
         }});
     }}
 
-    public static async Task Delete{className}Async(this DirectusSharp.IDirectus client, System.Collections.Generic.IEnumerator<{idPropertySymbol.Type.ToDisplayString()}> {idProperty.Identifier.Text.ToCamelCase()}) {{
+    public static async Task Delete{className}Async(this DirectusSharp.IDirectus client, params System.Collections.Generic.IEnumerable<{idPropertySymbol.Type.ToDisplayString()}> {idProperty.Identifier.Text.ToCamelCase()}) {{
         var response = await client.ExecuteAsync(new DeleteMultiple{className}Request() {{
             {idProperty.Identifier.Text} = {idProperty.Identifier.Text.ToCamelCase()}.ToArray()
         }});

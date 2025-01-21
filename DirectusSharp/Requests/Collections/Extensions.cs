@@ -111,7 +111,7 @@ public static class Extensions
         => DeleteItemAsync(client, collection, itemId.ToString());
 
     public static async Task<DirectusResponse<Nothing>> DeleteItemAsync(this IDirectus client, string collection,
-        IEnumerable<string> items)
+        params IEnumerable<string> items)
     {
         return await client.ExecuteAsync(new DeleteMultipleGenericItemRequest()
         {
@@ -120,10 +120,10 @@ public static class Extensions
         });
     }
     
-    public static Task<DirectusResponse<Nothing>> DeleteItemAsync(this IDirectus client, string collection, int[] itemId)
+    public static Task<DirectusResponse<Nothing>> DeleteItemAsync(this IDirectus client, string collection, params IEnumerable<int> itemId)
         => DeleteItemAsync(client, collection, itemId.Select(x => x.ToString()));
-    public static Task<DirectusResponse<Nothing>> DeleteItemAsync(this IDirectus client, string collection, ulong[] itemId)
+    public static Task<DirectusResponse<Nothing>> DeleteItemAsync(this IDirectus client, string collection, params IEnumerable<ulong> itemId)
         => DeleteItemAsync(client, collection, itemId.Select(x => x.ToString()));
-    public static Task<DirectusResponse<Nothing>> DeleteItemAsync(this IDirectus client, string collection, Guid[] itemId)
+    public static Task<DirectusResponse<Nothing>> DeleteItemAsync(this IDirectus client, string collection, params IEnumerable<Guid> itemId)
         => DeleteItemAsync(client, collection, itemId.Select(x => x.ToString()));
 }
