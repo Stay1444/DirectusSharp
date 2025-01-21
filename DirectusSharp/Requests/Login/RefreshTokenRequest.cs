@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace DirectusSharp.Requests;
+namespace DirectusSharp.Requests.Login;
 
 public class RefreshTokenRequest : IDirectusRequest<LoginResponse>
 {

@@ -1,8 +1,6 @@
-using DirectusSharp.Models;
+namespace DirectusSharp.Requests.Role;
 
-namespace DirectusSharp.Requests;
-
-public class GetRoleRequest : IDirectusRequest<Role>
+public class GetRoleRequest : IDirectusRequest<Models.Role>
 {
     public required Guid Id { get; init; }
 

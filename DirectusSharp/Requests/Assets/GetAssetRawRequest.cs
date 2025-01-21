@@ -1,6 +1,6 @@
-namespace DirectusSharp.Requests;
+namespace DirectusSharp.Requests.Assets;
 
-public class GetAssetRaw : IDirectusRawRequest
+public class GetAssetRawRequest : IDirectusRawRequest
 {
     public required Guid Id { get; init; }
 

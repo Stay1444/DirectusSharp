@@ -1,5 +1,5 @@
 using System.Text.Json.Serialization;
-using DirectusSharp.Requests;
+using DirectusSharp.Requests.Login;
 
 namespace DirectusSharp.Auth;
 

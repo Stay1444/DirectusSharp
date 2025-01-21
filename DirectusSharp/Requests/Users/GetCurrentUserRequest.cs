@@ -1,6 +1,6 @@
 using DirectusSharp.Models;
 
-namespace DirectusSharp.Requests;
+namespace DirectusSharp.Requests.Users;
 
 public class GetCurrentUserRequest : IDirectusRequest<User>
 {
