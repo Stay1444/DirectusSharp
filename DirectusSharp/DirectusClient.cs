@@ -25,6 +25,8 @@ public class DirectusClient : IDirectus
         _serializerOptions = new JsonSerializerOptions
         {
             PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,
+            RespectNullableAnnotations = true,
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
             Converters = { new JsonStringEnumConverter(JsonNamingPolicy.SnakeCaseLower) }
         };
     }

@@ -9,8 +9,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\DirectusSharp.Generators\DirectusSharp.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="true" />
-      <ProjectReference Include="..\..\DirectusSharp\DirectusSharp.csproj" />
+        <ProjectReference Include="..\..\DirectusSharp.Generators\DirectusSharp.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="true"/>
+        <ProjectReference Include="..\..\DirectusSharp\DirectusSharp.csproj"/>
     </ItemGroup>
 
 </Project>

@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using DirectusSharp.Generators.Attributes;
 
 namespace DirectusSharp.Examples.Collections.Models;
@@ -6,7 +7,8 @@ namespace DirectusSharp.Examples.Collections.Models;
 public class Movie
 {
     // Id must be a property and be called "Id" or "MovieId"
-    public int MovieId { get; set; } = 0;
-    
+    [JsonPropertyName("id")] // Directus uses snake_case, so the Id field needs to be called "id". If Id is NULL, Directus will automatically assign one for us
+    public int? MovieId { get; set; }
+
     public string Title { get; set; } = string.Empty;
 }
