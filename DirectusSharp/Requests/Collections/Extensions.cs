@@ -11,6 +11,12 @@ public static class Extensions
         protected override string GetCollection() => Collection;
         protected override string GetItemId() => Id;
     }
+    
+    private class GetGenericItemsRequest<TItem> : GetItemsRequest<TItem>
+    {
+        public required string Collection { get; init; }
+        protected override string GetCollection() => Collection;
+    }
 
     private class CreateGenericItemRequest<TItem> : CreateItemRequest<TItem>
     {
@@ -63,6 +69,14 @@ public static class Extensions
         GetItemAsync<TItem>(client, collection, itemId.ToString());
     public static Task<DirectusResponse<TItem>> GetItemAsync<TItem>(this IDirectus client, string collection, Guid itemId) => 
         GetItemAsync<TItem>(client, collection, itemId.ToString());
+
+    public static async Task<DirectusResponse<TItem[]>> GetItemsAsync<TItem>(this IDirectus client, string collection)
+    {
+        return await client.ExecuteAsync(new GetGenericItemsRequest<TItem>()
+        {
+            Collection = collection,
+        });
+    }
 
     public static async Task<DirectusResponse<TItem>> CreateItemAsync<TItem>(this IDirectus client, string collection,
         TItem item)
