@@ -77,8 +77,14 @@ jobs:
       # If you retry a failed workflow, already published packages will be skipped without error.
       - name: Publish NuGet package
         run: |
-          foreach($file in (Get-ChildItem "${{ env.NuGetDirectory }}" -Recurse -Include *.nupkg)) {
-              if ($file.Name -notlike "DirectusSharp.Examples.*") {
-                  dotnet nuget push $file --api-key "${{ secrets.NUGET_APIKEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
+          $packagesToPublish = @(
+            "DirectusSharp.Generators",
+            "DirectusSharp"
+          )
+          foreach ($file in (Get-ChildItem "${{ env.NuGetDirectory }}" -Recurse -Include *.nupkg)) {
+            foreach ($package in $packagesToPublish) {
+              if ($file.Name -like "$package.*") {
+                dotnet nuget push $file.FullName --api-key "${{ secrets.NUGET_APIKEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
               }
+            }
           }

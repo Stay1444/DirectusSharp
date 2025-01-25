@@ -2,11 +2,11 @@
 
     <PropertyGroup>
         <PackageId>DirectusSharp</PackageId>
-        <Version>0.0.11</Version>
+        <Version>0.0.13</Version>
         <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <PackageValidationBaselineVersion>0.0.11</PackageValidationBaselineVersion>
+        <PackageValidationBaselineVersion>0.0.13</PackageValidationBaselineVersion>
     </PropertyGroup>
 
     <PropertyGroup>
