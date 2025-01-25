@@ -61,6 +61,10 @@ public static class {className}Collection
         protected override string GetItemId() => {idProperty.Identifier.Text}.ToString();
     }}
 
+    public class GetMultiple{className}Request : GetItemsRequest<{classSymbol.ToDisplayString()}> {{
+        protected override string GetCollection() => ""{collectionName}"";
+    }}
+
     public class Create{className}Request : CreateItemRequest<{classSymbol.ToDisplayString()}> {{
         public required {classSymbol.ToDisplayString()} {className} {{ get; init; }}
 
@@ -94,6 +98,13 @@ public static class {className}Collection
         var response = await client.ExecuteAsync(new Get{className}Request() {{
             {idProperty.Identifier.Text} = {idProperty.Identifier.Text.ToCamelCase()}
         }});
+
+        if (response.IsSuccess) return response.Data;
+        return null;
+    }}
+
+    public static async Task<{classSymbol.ToDisplayString()}[]> GetMultiple{className}Async(this DirectusSharp.IDirectus client) {{
+        var response = await client.ExecuteAsync(new GetMultiple{className}Request() {{}});
 
         if (response.IsSuccess) return response.Data;
         return null;
